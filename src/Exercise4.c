@@ -19,50 +19,32 @@ Ex:
 #include <stdlib.h>
 #include <math.h>
 
+void printMany(char input, int time)
+{
+	for (int i = 0; i < time; i++)
+		printf("%c ", input);
+}
+
+
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
 	int height = atoi(argv[1]);
 	int border = atoi(argv[2]);
 	//Your codes here
-    int count = 1;
-    for (int i = 1; i <= height; i++) {
-        // in ky tu khoang trang
-        if (i<=border||i>(height-border))
-        {
-            for (int j = i; j < height; j++) {
-                printf("   ");
-            }
-
-            // in ky tu ngoi sao
-            for (int j = 1; j <= (2 * i - 1); j++) {
-                printf( " * ");
-            }
-
-            // xuong dong ke tiep
-            printf("\n");
-        }
-        else
-        {
-            for (int j = i; j < height; j++) {
-                printf( "   ");
-            }
-
-            // in ky tu ngoi sao
-            for (int j = 1; j <= border; j++) {
-                printf( " * ");
-            }
-            for (int i = 0; i < count; i++)
-            {
-                printf( "   ");
-            }
-            for (int j = 1; j <= border; j++) {
-                printf( " * ");
-            }
-            // xuong dong ke tiep
-            count = count + 2;
-            printf("\n");
-        }
-     
-    }
+    for(int i = 0; i < height; i++)
+	{
+		int currentBase = 1 + 2 * i;
+		printMany(' ', height - i - 1);
+		if (i >= border && i < height - border)
+		{
+			printMany('*', border);
+			printMany(' ', currentBase - 2 * border);
+			printMany('*', border);
+		}
+		else 
+			printMany('*', currentBase);
+		printMany(' ', height - i - 1);
+		printf("\n");
+	}
 	return 0;
 }
