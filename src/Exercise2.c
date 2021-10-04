@@ -26,21 +26,15 @@ int main(int argc, char *argv[]) {
 			testcase[i] = atoi(argv[i+1]);
 	}
 	//Your codes here
-	int a,max=0,min=0;
-	while(1)
-	{
-		printf("Input the number (0 to end): ");
-		scanf("%d",&a);
-		if(a==0){
-			printf("Stop input and print max,min");
-			break;
-		}
-		if(max<a)
-			max=a;
-		if(min>a)
-			min=a;
-	}
-	printf("\n\nMax is %d",max);
-	printf("\nMin is %d",min);
+	int max=testcase[0];
+	for(int i=1;i<argc;i++)
+	    if(max<testcase[i])
+		    max=testcase[i];
+	printf("Max: %d\n",max);
+	int min=testcase[0];
+	for(int i=1;i<argc;i++)
+	    if(min>testcase[i])
+		    min=testcase[i];
+	printf("Min: %d",min);
 	return 0;
 }
