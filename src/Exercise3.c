@@ -17,8 +17,6 @@ int main(int argc, char *argv[]) {
 	int testcase = atoi(argv[1]);
 	//Your codes here
 	int i, n, prime, count;
-	printf("\nNhap n: ");
-	scanf("%d", &n);
 	for(i=2;i<testcase;i++)
 	{
 		prime = 1;
