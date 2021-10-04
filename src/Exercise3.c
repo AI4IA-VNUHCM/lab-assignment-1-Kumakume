@@ -16,6 +16,22 @@ int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
 	int testcase = atoi(argv[1]);
 	//Your codes here
-	
+	int i, n, prime, count;
+	printf("\nNhap n: ");
+	scanf("%d", &n);
+	for(i=2;i<testcase;i++)
+	{
+		prime = 1;
+		for(count=2;count<i;count++)
+		{
+			if(i%count==0)
+			{
+				prime=0;
+				break;
+			}
+		}
+		if(prime)
+		    printf("%d ",i);
+	}
 	return 0;
 }
